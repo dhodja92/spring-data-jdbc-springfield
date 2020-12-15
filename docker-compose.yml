@@ -1,0 +1,12 @@
+version: "3.3"
+
+services:
+    postgresql:
+        image: postgres:13.1
+        container_name: spring-data-jdbc-demo-postgres
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: spring-data-jdbc-demo
+        ports:
+            - 5432:5432
