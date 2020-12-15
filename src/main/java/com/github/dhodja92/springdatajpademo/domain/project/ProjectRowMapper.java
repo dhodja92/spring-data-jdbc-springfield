@@ -29,7 +29,7 @@ public class ProjectRowMapper implements RowMapper<Project> {
 
         String taskIdString = rs.getString("t_id");
         if (taskIdString != null) {
-            currentProject.getTasks().add(
+            currentProject.addTask(
                     new Task(
                             UUID.fromString(taskIdString),
                             rs.getString("t_name"),

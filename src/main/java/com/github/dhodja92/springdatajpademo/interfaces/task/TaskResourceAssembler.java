@@ -6,6 +6,7 @@ import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSuppor
 import org.springframework.stereotype.Component;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Component
 public class TaskResourceAssembler extends RepresentationModelAssemblerSupport<Task, TaskResource> {
@@ -24,6 +25,7 @@ public class TaskResourceAssembler extends RepresentationModelAssemblerSupport<T
                 entity.getPriority()
         );
         resource.add(linkTo(TaskResourceController.class).withRel(IanaLinkRelations.COLLECTION));
+        resource.add(linkTo(methodOn(TaskResourceController.class).getTaskById(entity.getId())).withRel(IanaLinkRelations.SELF));
         return resource;
     }
 }

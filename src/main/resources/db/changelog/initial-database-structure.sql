@@ -1,13 +1,13 @@
 CREATE extension if NOT EXISTS "uuid-ossp";
 
 CREATE TABLE project (
-    id    UUID NOT NULL,
+    id    UUID NOT NULL DEFAULT uuid_generate_v4(),
     name  TEXT NOT NULL,
     color TEXT NOT NULL
 );
 
 CREATE TABLE task (
-    id         UUID NOT NULL,
+    id         UUID NOT NULL DEFAULT uuid_generate_v4(),
     name       TEXT NOT NULL,
     label      TEXT NOT NULL,
     finished   BOOLEAN DEFAULT FALSE,

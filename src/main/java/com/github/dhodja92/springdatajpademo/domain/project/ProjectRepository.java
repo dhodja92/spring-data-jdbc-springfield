@@ -1,15 +1,11 @@
 package com.github.dhodja92.springdatajpademo.domain.project;
 
-import com.github.dhodja92.springdatajpademo.infrastructure.jdbc.InsertEntity;
-import com.github.dhodja92.springdatajpademo.infrastructure.jdbc.UpdateEntity;
 import org.springframework.data.jdbc.repository.query.Query;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import java.util.UUID;
 
-public interface ProjectRepository extends Repository<Project, UUID>, InsertEntity<Project>, UpdateEntity<Project>, PagingProjectRepository {
-
-    Project findById(UUID id);
+public interface ProjectRepository extends CrudRepository<Project, UUID>, PagingProjectRepository {
 
     boolean existsById(UUID id);
 
